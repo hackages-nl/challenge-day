@@ -9,10 +9,49 @@
 <body>
    <h1>Todo App</h1> 
 
-   <input type="text"><button>Add Todo</button>
+   <input type="text" id="todoInput"><button id="abbBtn">Add Todo</button>
 
-   <ul>
+   <ul id="todos">
        <li>Learn JavaScript</li>
+
    </ul>
+   <script>
+       let todoInput, addBtn, todos;
+
+       document.addEventListener("DOMContentLoaded", init)
+
+       function init(){
+            // ref of the input
+            todoInput = document.getElementById('todoInput');
+            // ref of the button
+            addBtn = document.getElementById('abbBtn');
+            // ref of the ul list
+            todos = document.getElementById('todos');
+
+            // subscribe to the click of the addBtn
+            addBtn.addEventListener('click', addTodo);
+       }
+
+
+       function addTodo(){
+           // value of the todoInput
+           todo = todoInput.value;
+
+           // create the li element
+           const li = document.createElement('li');
+           // Adding the todo to the li.innerHtml
+           li.innerHTML = todo;
+
+           // Append the li to the list
+            todos.append(li)
+
+            // Empty the value input
+            todoInput.value = "";
+
+            todoInput.focus();
+       }
+
+       
+   </script>
 </body>
 </html>
